@@ -61,8 +61,8 @@ String sCategoryCd = request.getParameter("categoryCd");
 					<div class="item-container" onclick="addCart('<%=productUuid%>');">
 						<div class="productImg">
 							<img
-								src="<%=request.getContextPath()%>/images/category_<%=sCategoryCd%>/<%=(productImg != null && !productImg.isEmpty()) ? productImg : "kimbap_default.jpg"%>"
-								alt="메뉴이미지" style="width: 120px; height: auto;" />
+                        		src="<%=request.getContextPath()%>/images/category_<%=sCategoryCd%>/<%=(productImg != null && !productImg.isEmpty()) ? productImg : "kimbap_default.jpg"%>"
+                        		alt="메뉴이미지" style="width: 120px; height: 120px; object-fit: cover;" />
 
 						</div>
 
