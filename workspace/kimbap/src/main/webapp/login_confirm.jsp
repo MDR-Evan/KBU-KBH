@@ -46,12 +46,12 @@
     }
 %>
 
-  <!-- 포인트 적립/재시도 폼 -->
+  <!-- 포인트 적립 폼 -->
   <form id="frmlogin" method="post" action="#">
     <input type="hidden" name="PHONE_NUM" value="<%= phone %>">
   </form>
 
-  <!-- 메인 페이지 복귀 폼 -->
+  <!-- 적립 포기 복귀 폼 -->
   <form id="return" method="post" action="point.jsp"></form>
   
   <!-- 회원정보 불일치 복귀 폼 -->

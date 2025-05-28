@@ -17,7 +17,9 @@ minimum-scale=1.0, user-scalable=no">
 <body>
 	<div class="header_container" style="background: white;">
 		<div class="header_left">
-			<img src="./images/logo.png" style="width: 110px; height: 110px; margin-top: 10px;"/>
+			<a href="index.jsp">
+				<img src="./images/logo.png" style="width: 110px; height: 110px; margin-top: 10px;"/>
+			</a>
 		</div>
 		<div class="header_center">
 			<span class="brand">김밥지옥</span> <span class="sub">키오스크</span>
