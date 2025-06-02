@@ -47,7 +47,7 @@
 %>
 
   <!-- 포인트 적립 폼 -->
-  <form id="frmlogin" method="post" action="point_confirm.jsp">
+  <form id="frmlogin" method="post" action="earnPoint.jsp">
     <input type="hidden" name="PHONE_NUM" value="<%= phone %>">
   </form>
 
