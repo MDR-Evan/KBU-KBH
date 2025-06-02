@@ -8,9 +8,9 @@
   <title>포인트 처리</title>
   <script>
     function tryLoginAgain() {
-      if (confirm("회원정보가 존재하지 않습니다.\n다시 시도하시겠습니까?")) {
+      if (confirm("회원정보가 존재하지 않습니다.\n회원가입 하시겠습니까?")) {
         // 확인 클릭 시: 포인트 적립 페이지로
-        document.getElementById("point").submit();
+        document.getElementById("register").submit();
       } else {
         // 취소 클릭 시: 메인 페이지로
         alert("로그인을 취소하셨습니다.");
@@ -47,7 +47,7 @@
 %>
 
   <!-- 포인트 적립 폼 -->
-  <form id="frmlogin" method="post" action="#">
+  <form id="frmlogin" method="post" action="point_confirm.jsp">
     <input type="hidden" name="PHONE_NUM" value="<%= phone %>">
   </form>
 
@@ -55,7 +55,7 @@
   <form id="return" method="post" action="point.jsp"></form>
   
   <!-- 회원정보 불일치 복귀 폼 -->
-  <form id="point" method="post" action="point.jsp"></form>
+  <form id="register" method="post" action="register.jsp"></form>
 
 <% if (userExists) { %>
   <script>

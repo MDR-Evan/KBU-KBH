@@ -4,47 +4,45 @@
 <%@ include file="dbconn.jsp" %>
 
 <%
-DecimalFormat df = new DecimalFormat("###,###");
-String sCategoryCd = request.getParameter("categoryCd");
-long lTotPrice = 0;
-int totalQuantity = 0; // 전체 상품 수량을 저장할 변수 추가
+    DecimalFormat df = new DecimalFormat("###,###");
+    String sCategoryCd = request.getParameter("categoryCd");
+    long lTotPrice = 0;
+    int totalQuantity = 0; // 전체 상품 수량을 저장할 변수 추가
 %>
 
 <form id="frmCartDel" method="post" action="cartDel.jsp">
-	<input type="hidden" name="shopDeviceId" value="<%=sShopDeviceId%>">
-	<input type="hidden" name="categoryCd" value="<%=sCategoryCd%>">
-	<input type="hidden" name="cartUuid" value="">
-	<input type="hidden" name="processType" value="">
+    <input type="hidden" name="shopDeviceId" value="<%=sShopUuid%>">
+    <input type="hidden" name="categoryCd" value="<%=sCategoryCd%>">
+    <input type="hidden" name="cartUuid" value="">
+    <input type="hidden" name="processType" value="">
 </form>
 
 <form id="frmPay" method="post" action="point.jsp">
-	<input type="hidden" name="shopDeviceId" value="<%=sShopDeviceId%>">
-	<input type="hidden" name="categoryCd" value="<%=sCategoryCd%>">
+    <input type="hidden" name="shopDeviceId" value="<%=sShopUuid%>">
+    <input type="hidden" name="categoryCd" value="<%=sCategoryCd%>">
 </form>
 
 <script>
-	function delCart(cartUuid) {
-		const frm = document.getElementById("frmCartDel");
-		frm.processType.value = "P";
-		frm.cartUuid.value = cartUuid;
-		frm.submit();
-	}
-	function delCartAll() {
-		const frm = document.getElementById("frmCartDel");
-		frm.processType.value = "A";
-		frm.submit();
-	}
-	function processPayment(currentTotalPrice) {
-	    if (currentTotalPrice <= 0) {
-	        alert("장바구니에 상품을 담아주세요.");
-	        return false;
-	    }
-	    if (confirm("결제 하시겠습니까?")) {
-	      document.getElementById("frmPay").submit();
-	    }
-	    // submit()이 호출되지 않는 경우를 위해 false를 반환할 수 있습니다 (선택 사항)
-	    // return false; 
-	  }
+    function delCart(cartUuid) {
+        const frm = document.getElementById("frmCartDel");
+        frm.processType.value = "P";
+        frm.cartUuid.value = cartUuid;
+        frm.submit();
+    }
+    function delCartAll() {
+        const frm = document.getElementById("frmCartDel");
+        frm.processType.value = "A";
+        frm.submit();
+    }
+    function processPayment(currentTotalPrice) {
+        if (currentTotalPrice <= 0) {
+            alert("장바구니에 상품을 담아주세요.");
+            return false;
+        }
+        if (confirm("결제 하시겠습니까?")) {
+          document.getElementById("frmPay").submit();
+        }
+    }
 </script>
 
 <div class="cart-wrapper">
@@ -81,7 +79,7 @@ int totalQuantity = 0; // 전체 상품 수량을 저장할 변수 추가
           <div class="product-name"><strong><%= sProductName %></strong></div>
           <div class="cart-control">
             <form method="post" action="cartDel.jsp">
-              <input type="hidden" name="shopDeviceId" value="<%=sShopDeviceId%>">
+              <input type="hidden" name="shopDeviceId" value="<%=sShopUuid%>">
               <input type="hidden" name="processType" value="U-" />
               <input type="hidden" name="cartUuid" value="<%= sCartUuid %>" />
               <input type="hidden" name="categoryCd" value="<%= sCategoryCd %>" />
@@ -91,7 +89,7 @@ int totalQuantity = 0; // 전체 상품 수량을 저장할 변수 추가
             <span class="quantity"><strong><%= quantity %></strong></span>
 
             <form method="post" action="cartDel.jsp">
-              <input type="hidden" name="shopDeviceId" value="<%=sShopDeviceId%>">
+              <input type="hidden" name="shopDeviceId" value="<%=sShopUuid%>">
               <input type="hidden" name="processType" value="U+" />
               <input type="hidden" name="cartUuid" value="<%= sCartUuid %>" />
               <input type="hidden" name="categoryCd" value="<%= sCategoryCd %>" />
@@ -103,6 +101,9 @@ int totalQuantity = 0; // 전체 상품 수량을 저장할 변수 추가
         </li>
       <%
           }
+          // 장바구니 데이터 조회가 끝난 뒤 세션에 lTotPrice를 저장
+          session.setAttribute("lTotPrice", lTotPrice);
+
           if (!hasItem) {
       %>
         <li class="cart-item empty">
@@ -127,7 +128,7 @@ int totalQuantity = 0; // 전체 상품 수량을 저장할 변수 추가
     <div class="divider"></div>
     <div class="item-count"><strong>선택한 상품:</strong> <%= totalQuantity %>개</div>
     <div class="total-section">
-      <button class="pay-button" onclick="processPayment()">
+      <button class="pay-button" onclick="processPayment(<%= lTotPrice %>)">
         💳 <%= df.format(lTotPrice) %>원
       </button>
     </div>

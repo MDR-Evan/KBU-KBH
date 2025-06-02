@@ -60,8 +60,6 @@
 			<h1>로그인</h1>
 			<form action="login_confirm.jsp" method="post">
 				<label>전화번호: <input type="text" name="PHONE_NUM"></label>
-				<input type="hidden" name="shopDeviceId" value="<%=sShopDeviceId%>">
-				<input type="hidden" name="categoryCd" value="<%=sCategoryCd%>">
 				<input type="submit" value="로그인" />
 			</form>
 		</div>
