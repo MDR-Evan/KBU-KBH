@@ -36,5 +36,6 @@
     <li><a href="orderMag.jsp">주문 관리</a></li>
     <li><a href="productMag.jsp">상품 관리</a></li>
     <li><a href="salesStatus.jsp">매출 현황</a></li>
+    <li><a href="user.jsp">회원 정보 수정</a></li>
   </ul>
 </nav>

@@ -118,7 +118,8 @@
         <div class="form-container">
             <h2>회원 정보 수정</h2>
             <form method="post" action="userEditProcess.jsp">
-
+				<input type="hidden" name="uuid" value="<%= uuid_param %>">
+                
                 <label for="name">이름:</label>
                 <input type="text" id="name" name="name" value="<%= name_val %>" required>
 

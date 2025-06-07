@@ -33,10 +33,10 @@ a {
 
 /* 왼쪽 로고 */
 .header_left img {
-	width: 500px;
-	height: 500px;
-	background-color: transparent;
-	filter: none;
+   width: 500px;
+   height: 500px;
+   background-color: transparent;
+   filter: none;
 }
 
 /* 오른쪽 링크 */
@@ -102,7 +102,7 @@ nav#menuArea li.current a {
   background: white;
   border: 1px solid #ddd;
   border-radius: 12px;
-  width: 200px;
+  width: 400px;
   padding: 15px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
@@ -304,5 +304,3 @@ nav#menuArea li.current a {
   align-items: center;
   justify-content: center;
 }
-
-

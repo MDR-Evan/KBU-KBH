@@ -17,7 +17,7 @@ minimum-scale=1.0, user-scalable=no">
 <body>
 	<div class="header_container" style="background: white;">
 		<div class="header_left">
-			<a href="index.jsp">
+			<a href="product.jsp?categoryCd=01">
 				<img src="./images/logo.png" style="width: 110px; height: 110px; margin-top: 10px;"/>
 			</a>
 		</div>

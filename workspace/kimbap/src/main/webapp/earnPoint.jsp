@@ -191,7 +191,7 @@
       background-color: rgba(0, 0, 0, 0.8);
       color: #fff;
       padding: 20px 30px;
-      font-size: 18px;
+      font-size: 30px;
       border-radius: 8px;
       text-align: center;
       z-index: 1000;
@@ -202,7 +202,7 @@
     function showPointPopup(point) {
       var popup = document.getElementById('pointPopup');
       if (!popup) return;
-      popup.innerText = point + "포인트가 적립되었습니다.";
+      popup.innerText = "결제되었습니다.\n" + point + "포인트가 적립되었습니다.";
       popup.style.display = 'block';
       // 3초 후 팝업 숨긴 뒤 리다이렉트
       setTimeout(function() {
