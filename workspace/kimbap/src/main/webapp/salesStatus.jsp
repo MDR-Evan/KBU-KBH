@@ -66,7 +66,6 @@ try {
 <head>
 	<meta charset="UTF-8">
 	<title>매출현황 - 일별목록</title>
-	<%-- <link rel="stylesheet" href="style.css"> --%>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <style>
 body {
@@ -75,9 +74,6 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
-}
-.page-container { /* 전체 페이지 컨텐츠를 감싸는 래퍼 */
-    padding: 0 20px 20px 20px; /* 좌우하단 패딩 */
 }
 .navigation-links {
     margin: 15px 0 25px 0; /* 상단 네비게이션 링크 여백 */
